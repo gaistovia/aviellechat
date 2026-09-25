@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"/>
+  <title>
+   AVIELLE CHAT — Connect • Learn • Prosper
+  </title>
+  <meta content="AVIELLE CHAT — connect with people worldwide, practice languages, share cultures and start conversations." name="description"/>
+  <meta content="index,follow,max-image-preview:large" name="robots"/>
+  <meta content="#09051a" name="theme-color"/>
+  <link href="assets/favicon.png" rel="icon" sizes="192x192" type="image/png"/>
+  <link href="assets/favicon.png" rel="apple-touch-icon"/>
+  <!-- IMPORTANT: Replace YOUR-GITHUB-USERNAME/YOUR-REPOSITORY with the actual GitHub Pages URL after publishing. -->
+  <meta content="website" property="og:type"/>
+  <meta content="AVIELLE CHAT" property="og:site_name"/>
+  <meta content="AVIELLE CHAT — Connect • Learn • Prosper" property="og:title"/>
+  <meta content="Connect with people worldwide, practice languages and discover new cultures with AVIELLE CHAT." property="og:description"/>
+  <meta content="https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY/assets/avielle-og.jpg" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY/" property="og:url"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="AVIELLE CHAT — Connect • Learn • Prosper" name="twitter:title"/>
+  <meta content="Connect, learn and chat with AVIELLE CHAT." name="twitter:description"/>
+  <meta content="https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY/assets/avielle-og.jpg" name="twitter:image"/>
+  <style>
+   :root {
+  --bg:#080514;
+  --card:#151026;
+  --card2:#1c1430;
+  --violet:#7c3aed;
+  --purple:#a855f7;
+  --pink:#ec4899;
+  --gold:#f6c453;
+  --white:#f8f7ff;
+  --muted:#aaa4bd;
+  --green:#27d39a}
+* {
+  box-sizing:border-box}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font:15px Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+a {
+  text-decoration:none;
+  color:inherit}
+button,input {
+  font:inherit}
+.app {
+  max-width:760px;
+  margin:auto;
+  min-height:100vh;
+  background:radial-gradient(circle at 50% -10%,#382064,#120b26 40%,#080514 75%);
+  padding-bottom:30px}
+.header {
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#09051af2;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #fff1;
+  padding:10px 13px}
+.row {
+  display:flex;
+  align-items:center;
+  gap:9px}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  flex:1;
+  min-width:0}
+.brand img {
+  width:52px;
+  height:52px;
+  border-radius:13px;
+  object-fit:contain;
+  background:#05030d}
+.brandname {
+  font:900 20px Manrope}
+.brandname span {
+  color:var(--pink)}
+.tag {
+  font-size:8px;
+  letter-spacing:.7px;
+  color:#bbb3ca;
+  font-weight:800;
+  margin-top:3px}
+.online {
+  white-space:nowrap;
+  border:1px solid #a855f744;
+  background:#a855f712;
+  border-radius:22px;
+  padding:9px 10px;
+  font-size:11px;
+  font-weight:900}
+.dot {
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--green);
+  margin-right:5px;
+  box-shadow:0 0 9px var(--green)}
+.menu {
+  width:41px;
+  height:41px;
+  border:1px solid #fff2;
+  background:#fff1;
+  color:#fff;
+  border-radius:12px}
+.actions {
+  display:grid;
+  grid-template-columns:1fr 1.2fr 1fr;
+  gap:8px;
+  padding:14px 13px}
+.action {
+  min-height:62px;
+  border-radius:17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:12px;
+  font-weight:900;
+  border:1px solid #fff1}
+.install {
+  background:linear-gradient(135deg,var(--violet),var(--purple))}
+.withdraw {
+  background:linear-gradient(135deg,#d946ef,var(--pink))}
+.balance {
+  background:#fff;
+  color:#45365a;
+  flex-direction:column;
+  gap:2px}
+.balance small {
+  font-size:9px}
+.balance strong {
+  color:var(--violet);
+  font-size:16px}
+.notice {
+  margin:0 13px 17px;
+  padding:15px;
+  background:linear-gradient(180deg,#18112d,#100a21);
+  border:1px solid #fff1;
+  border-radius:23px}
+.trusted {
+  width:max-content;
+  max-width:100%;
+  margin:0 auto 11px;
+  padding:7px 12px;
+  border-radius:20px;
+  background:#27d39a12;
+  border:1px solid #27d39a35;
+  color:#7ff0c5;
+  font-size:11px;
+  font-weight:900}
+.noticebox {
+  padding:12px;
+  border:1px solid #fff1;
+  background:#fff1;
+  border-radius:15px;
+  margin-bottom:10px}
+.nhead {
+  color:var(--gold);
+  font-weight:900;
+  font-size:13px;
+  margin-bottom:7px}
+.noticebox p {
+  margin:0;
+  color:#c8c2d3;
+  font-size:13px;
+  line-height:1.55;
+  font-weight:600}
+.payment {
+  padding:11px;
+  border-radius:14px;
+  background:#fff1;
+  border:1px solid #fff1;
+  text-align:center;
+  color:#aaa3b8;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.5}
+.payment b {
+  display:block;
+  color:#d7b45a;
+  font-size:13px}
+.heading {
+  padding:3px 16px 13px;
+  color:#e9c76b;
+  font-size:17px;
+  font-weight:900}
+.profiles {
+  display:grid;
+  gap:13px;
+  padding:0 13px}
+.card {
+  padding:15px;
+  background:linear-gradient(180deg,#17112b,#110b20);
+  border:1px solid #fff1;
+  border-radius:23px;
+  box-shadow:0 10px 28px #0004}
+.top {
+  display:flex;
+  gap:12px;
+  align-items:center}
+.avatar {
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  flex:none;
+  display:block;
+  object-fit:cover;
+  background:#24163b;
+  border:2px solid #9b62e9;
+  position:relative}
+.avatar:after {
+  content:"";
+  position:absolute;
+  right:-1px;
+  bottom:1px;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:var(--green);
+  border:3px solid #130c25}
+.info {
+  flex:1}
+.name {
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:4px}
+.country {
+  font-size:12px;
+  color:#b4adc2;
+  font-weight:700}
+.country b {
+  color:var(--green)}
+.rating {
+  color:var(--gold);
+  font-size:13px;
+  font-weight:900;
+  margin-top:5px}
+.meta {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:13px;
+  padding-top:12px;
+  border-top:1px solid #fff1}
+.meta div {
+  font-size:11px;
+  color:#9d96ac;
+  line-height:1.5;
+  font-weight:700}
+.meta strong {
+  display:block;
+  color:#d8d1df;
+  font-size:12px}
+.bio {
+  margin-top:11px;
+  color:#aaa3b5;
+  font-size:12px;
+  line-height:1.55;
+  font-weight:600}
+.earn {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px}
+.amount {
+  font-size:17px;
+  font-weight:900;
+  background:#7c3aed18;
+  border:1px solid #7c3aed35;
+  padding:7px 9px;
+  border-radius:10px}
+.usd {
+  font-size:11px;
+  color:#a7a0b2;
+  font-weight:700}
+.start {
+  width:100%;
+  margin-top:12px;
+  border:0;
+  border-radius:15px;
+  padding:14px;
+  background:linear-gradient(135deg,var(--violet),var(--pink));
+  color:#fff;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer}
+.care {
+  position:fixed;
+  right:max(10px,calc((100vw - 760px)/2 + 10px));
+  bottom:75px;
+  z-index:80;
+  padding:14px 17px;
+  border-radius:28px;
+  background:linear-gradient(135deg,var(--violet),var(--purple));
+  font-weight:900;
+  font-size:14px;
+  box-shadow:0 12px 30px #0008}
+.bottom {
+  display:none}
+.overlay,.verify {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:#05020dcc;
+  backdrop-filter:blur(8px);
+  align-items:center;
+  justify-content:center;
+  padding:20px}
+.modal,.verifybox {
+  width:min(440px,100%);
+  background:#fff;
+  color:#171124;
+  border-radius:27px;
+  padding:28px 21px 21px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 25px 80px #0009}
+.close {
+  position:absolute;
+  right:14px;
+  top:8px;
+  border:0;
+  background:none;
+  color:#8990a0;
+  font-size:29px}
+.icon {
+  width:70px;
+  height:70px;
+  border-radius:20px;
+  margin:6px auto 15px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--violet),var(--pink));
+  font-size:31px}
+.modal h2 {
+  font:800 23px Manrope;
+  margin:0 0 9px}
+.modal p {
+  color:#646074;
+  line-height:1.6;
+  font-size:14px;
+  font-weight:600}
+.price {
+  font-size:30px;
+  color:var(--violet);
+  font-weight:900;
+  margin:9px 0 16px}
+.join {
+  display:block;
+  padding:15px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--violet),var(--pink));
+  color:#fff;
+  font-size:16px;
+  font-weight:900}
+.back {
+  width:100%;
+  margin-top:10px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid #e1e4eb;
+  background:#fff;
+  color:#2b2540;
+  font-weight:900}
+.chat {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:150;
+  background:#0b0715;
+  flex-direction:column}
+.chathead {
+  padding:12px 14px;
+  background:linear-gradient(135deg,#0b0620,#28144d);
+  display:flex;
+  align-items:center;
+  gap:10px}
+.backchat {
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:27px}
+.mini {
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  background:#24153c;
+  display:block;
+  object-fit:cover;
+  border:1px solid #9b62e9}
+.chathead strong {
+  font-size:15px}
+.chathead small {
+  display:block;
+  color:#55e0ad}
+.chatbody {
+  flex:1;
+  overflow:auto;
+  padding:18px 14px}
+.bubble {
+  max-width:84%;
+  padding:12px 14px;
+  border-radius:17px;
+  margin-bottom:10px;
+  font-size:14px;
+  line-height:1.55;
+  font-weight:600}
+.foreign {
+  background:#19132b;
+  border:1px solid #fff1;
+  border-top-left-radius:5px}
+.mine {
+  margin-left:auto;
+  background:linear-gradient(135deg,var(--violet),#b84eea);
+  border-top-right-radius:5px}
+.chatfoot {
+  display:flex;
+  gap:8px;
+  padding:10px;
+  background:#110b20;
+  border-top:1px solid #fff1}
+.chatfoot input {
+  flex:1;
+  border:1px solid #ffffff20;
+  background:#fff;
+  color:#1a1424;
+  border-radius:24px;
+  padding:12px 14px;
+  outline:none}
+.send {
+  width:49px;
+  border:0;
+  border-radius:50%;
+  background:var(--pink);
+  color:#fff}
+.spinner {
+  width:48px;
+  height:48px;
+  border:5px solid #eee8f4;
+  border-top-color:var(--purple);
+  border-radius:50%;
+  animation:spin .9s linear infinite;
+  margin:0 auto 17px}
+@keyframes spin {
+  to {
+  transform:rotate(360deg)}
+}
+.verifybox h3 {
+  margin:0 0 7px;
+  font-size:20px}
+.verifybox p {
+  margin:0;
+  color:#777184;
+  font-size:13px}
+.footer {
+  margin:30px 13px 0;
+  padding:22px 14px 28px;
+  border-top:1px solid #ffffff12;
+  text-align:center;
+  color:#888198}
+.footerbrand {
+  font:900 18px Manrope;
+  color:#eee9f7}
+.footerbrand span {
+  color:var(--pink)}
+.footlinks {
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:12px 0;
+  font-size:11px;
+  font-weight:800}
+.footlinks a {
+  color:#aaa3b5}
+.copyright {
+  font-size:10px;
+  color:#6f687c}
+@media(max-width:500px) {
+  .brandname {
+  font-size:18px}
+.online {
+  font-size:10px}
+.action {
+  min-height:58px;
+  font-size:11px}
+.heading {
+  font-size:16px}
+.care {
+  font-size:13px;
+  padding:13px 15px}
+}
+  </style>
+ </head>
+ <body>
+  <div class="app">
+   <header class="header">
+    <div class="row">
+     <div class="brand">
+      <img alt="AVIELLE CHAT logo" fetchpriority="high" height="52" src="assets/avielle-logo.webp" width="52"/>
+      &gt;
+      <div>
+       <div class="brandname">
+        AVIELLE
+        <span>
+         CHAT
+        </span>
+       </div>
+       <div class="tag">
+        CONNECT • LEARN • PROSPER
+       </div>
+      </div>
+     </div>
+     <div class="online">
+      <i class="dot">
+      </i>
+      <span id="online">
+       42,680
+      </span>
+      online
+     </div>
+     <button class="menu">
+      ☰
+     </button>
+    </div>
+   </header>
+   <section class="actions">
+    <a class="action install" href="https://moxeraagencies.com/register?ref=Zenith12">
+     📲 Install
+    </a>
+    <div class="action balance">
+     <small>
+      CURRENT BALANCE
+     </small>
+     <strong>
+      0.00 TZS
+     </strong>
+    </div>
+    <a class="action withdraw" href="https://moxeraagencies.com/register?ref=Zenith12">
+     💸 Withdrawal
+    </a>
+   </section>
+   <section class="notice">
+    <div class="trusted">
+     ✦ Welcome to the AVIELLE community
+    </div>
+    <div class="noticebox">
+     <div class="nhead">
+      🔔 NOTIFICATIONS
+     </div>
+     <p>
+      Meet people from around the world, practice languages, share culture and earn from your conversations.
+     </p>
+    </div>
+    <div class="payment">
+     <b>
+      💳 FAST WITHDRAWALS
+     </b>
+     M-Pesa • Mix by Yas • Halopesa • Airtel Money • NMB • CRDB • NBC
+    </div>
+   </section>
+   <div class="heading">
+    TAP ANY PROFILE TO START CHAT AND GET PAID
+   </div>
+   <main class="profiles" id="profiles">
+   </main>
+   <footer class="footer">
+    <div class="footerbrand">
+     AVIELLE
+     <span>
+      CHAT
+     </span>
+    </div>
+    <div class="footlinks">
+     <a href="#">
+      About
+     </a>
+     <a href="#">
+      Privacy
+     </a>
+     <a href="#">
+      Terms
+     </a>
+    </div>
+    <div class="copyright">
+     © 2026 AVIELLE CHAT. All rights reserved.
+    </div>
+   </footer>
+  </div>
+  <a class="care" href="sms:+255791216242?body=Habari%2C%20nataka%20unijuze%20kuhusu%20Avielle%20Chat">
+   🎧 Customer Care
+  </a>
+  <div class="bottom">
+   <a href="https://moxeraagencies.com/register?ref=Zenith12">
+    👤 FUNGUA ACCOUNT — 16,000 TZS
+   </a>
+  </div>
+  <div class="overlay" id="gate">
+   <div class="modal">
+    <button class="close" onclick="closeGate()">
+     ×
+    </button>
+    <div class="icon">
+     🔒
+    </div>
+    <h2>
+     Huwezi Kutuma Ujumbe
+    </h2>
+    <p>
+     Fungua account ya AVIELLE CHAT ili uendelee na mazungumzo na kuanza kupata malipo.
+    </p>
+    <div class="price">
+     16,000 TZS
+    </div>
+    <a class="join" href="https://moxeraagencies.com/register?ref=Zenith12">
+     👤 Jisajili Sasa — 16,000 TZS
+    </a>
+    <button class="back" onclick="closeGate()">
+     ← Rudi Kwenye Chat
+    </button>
+   </div>
+  </div>
+  <div class="verify" id="verify">
+   <div class="verifybox">
+    <div class="spinner">
+    </div>
+    <h3>
+     Inathibitisha Account...
+    </h3>
+    <p>
+     Tafadhali subiri kidogo, AVIELLE CHAT inakagua account yako.
+    </p>
+   </div>
+  </div>
+  <div class="chat" id="chat">
+   <div class="chathead">
+    <button class="backchat" onclick="closeChat()">
+     ←
+    </button>
+    <img alt="Profile" class="mini" decoding="async" id="mini" loading="lazy" src=""/>
+    <div>
+     <strong id="chatName">
+      Guest
+     </strong>
+     <small>
+      ● online
+     </small>
+    </div>
+   </div>
+   <div class="chatbody" id="chatBody">
+   </div>
+   <form class="chatfoot" id="chatForm">
+    <input id="message" placeholder="Andika ujumbe wako..." required=""/>
+    <button class="send">
+     ➤
+    </button>
+   </form>
+  </div>
+  <script>
+   const profiles=[["Sophia", 25, "🇺🇸 USA", "Travel • Culture", "I love Tanzania, photography and learning Swahili."], ["Emma", 27, "🇬🇧 UK", "Language • Travel", "Looking for friendly conversations and Swahili practice."], ["Olivia", 24, "🇨🇦 Canada", "Culture • Food", "Curious about Tanzanian food, people and everyday life."], ["Ava", 26, "🇦🇺 Australia", "Wildlife • Travel", "Safari lover preparing for my next Tanzania adventure."], ["Mia", 28, "🇺🇸 USA", "Music • Culture", "I enjoy music, languages and discovering new cultures."], ["Isabella", 23, "🇮🇹 Italy", "Travel • Lifestyle", "Travel enthusiast interested in East African lifestyle."], ["Amelia", 29, "🇫🇷 France", "Art • Culture", "Artist and traveler learning more about Tanzania."], ["Charlotte", 26, "🇩🇪 Germany", "Nature • Language", "Nature lover practicing conversational Swahili."], ["Harper", 25, "🇳🇱 Netherlands", "Photography • Travel", "Photographer fascinated by Tanzania."], ["Evelyn", 30, "🇺🇸 USA", "History • Culture", "I enjoy meaningful cultural conversations."], ["Luna", 24, "🇪🇸 Spain", "Beach • Travel", "Beach lover planning a trip across Tanzania."], ["Ella", 27, "🇨🇭 Switzerland", "Food • Travel", "Always curious about local food and destinations."], ["Grace", 26, "🇮🇪 Ireland", "Culture • Language", "Learning Swahili and making international friends."], ["Chloe", 25, "🇸🇪 Sweden", "Nature • Travel", "Outdoor lover looking for authentic Tanzania stories."], ["Sophie", 28, "🇬🇧 UK", "Photography • Culture", "I love portraits, travel and cultural exchange."], ["Lily", 23, "🇺🇸 USA", "Education • Language", "Language learner interested in practical Swahili."], ["Hannah", 29, "🇨🇦 Canada", "Wildlife • Photography", "Wildlife photographer planning a safari."], ["Aria", 26, "🇦🇺 Australia", "Adventure • Travel", "Adventure lover interested in East Africa."], ["Zoe", 24, "🇺🇸 USA", "Music • Travel", "Music fan and language learner."], ["Nora", 27, "🇩🇰 Denmark", "Culture • Food", "Exploring African culture one conversation at a time."], ["Mila", 25, "🇵🇹 Portugal", "Beach • Culture", "I enjoy travel and learning local phrases."], ["Lucy", 30, "🇬🇧 UK", "History • Travel", "History lover planning a Tanzania visit."], ["Emily", 26, "🇺🇸 USA", "Travel • Daily Life", "Interested in everyday life and authentic conversations."], ["Ruby", 24, "🇦🇹 Austria", "Art • Language", "Creative soul learning Swahili."], ["Victoria", 28, "🇳🇴 Norway", "Nature • Adventure", "Hiking and nature enthusiast."], ["Alice", 25, "🇫🇮 Finland", "Technology • Culture", "Tech enthusiast curious about Tanzania."], ["Maya", 27, "🇺🇸 USA", "Food • Language", "Learning Swahili through food and conversation."], ["Clara", 29, "🇧🇪 Belgium", "Travel • Photography", "Traveler and photographer."], ["Elena", 26, "🇪🇸 Spain", "Dance • Culture", "Interested in Tanzanian music and dance."], ["Layla", 24, "🇫🇷 France", "Fashion • Travel", "Exploring African style and culture."], ["Naomi", 28, "🇨🇭 Switzerland", "Wellness • Travel", "Enjoying slow travel and cultural exchange."], ["Eva", 25, "🇩🇪 Germany", "Language • Adventure", "Learning Swahili before visiting East Africa."]],registerURL="https://moxeraagencies.com/register?ref=Zenith12";
+let active=null;
+const faces=["https://randomuser.me/api/portraits/women/1.jpg", "https://randomuser.me/api/portraits/women/2.jpg", "https://randomuser.me/api/portraits/women/3.jpg", "https://randomuser.me/api/portraits/women/4.jpg", "https://randomuser.me/api/portraits/women/5.jpg", "https://randomuser.me/api/portraits/women/6.jpg", "https://randomuser.me/api/portraits/women/7.jpg", "https://randomuser.me/api/portraits/women/8.jpg", "https://randomuser.me/api/portraits/women/9.jpg", "https://randomuser.me/api/portraits/women/10.jpg", "https://randomuser.me/api/portraits/women/11.jpg", "https://randomuser.me/api/portraits/women/12.jpg", "https://randomuser.me/api/portraits/women/13.jpg", "https://randomuser.me/api/portraits/women/14.jpg", "https://randomuser.me/api/portraits/women/15.jpg", "https://randomuser.me/api/portraits/women/16.jpg", "https://randomuser.me/api/portraits/women/17.jpg", "https://randomuser.me/api/portraits/women/18.jpg", "https://randomuser.me/api/portraits/women/19.jpg", "https://randomuser.me/api/portraits/women/20.jpg", "https://randomuser.me/api/portraits/women/21.jpg", "https://randomuser.me/api/portraits/women/22.jpg", "https://randomuser.me/api/portraits/women/23.jpg", "https://randomuser.me/api/portraits/women/24.jpg", "https://randomuser.me/api/portraits/women/25.jpg", "https://randomuser.me/api/portraits/women/26.jpg", "https://randomuser.me/api/portraits/women/27.jpg", "https://randomuser.me/api/portraits/women/28.jpg", "https://randomuser.me/api/portraits/women/29.jpg", "https://randomuser.me/api/portraits/women/30.jpg", "https://randomuser.me/api/portraits/women/31.jpg", "https://randomuser.me/api/portraits/women/32.jpg"];
+function render(){
+  document.getElementById("profiles").innerHTML=profiles.map((p,i)=>`<article class="card"><div class="top"><img class="avatar" src="${faces[i%faces.length]}" alt="${p[0]} profile photo" loading="lazy" decoding="async"><div class="info"><div class="name">${p[0]}, ${p[1]}</div><div class="country">${p[2]} · <b>● online</b></div><div class="rating">⭐ ${(4.6+(i%4)*.1).toFixed(1)}</div></div></div><div class="meta"><div>CHAT TIME<strong>${i%3?"45 minutes":"1 hour"}</strong></div><div>WANTS<strong>${p[3]}</strong></div></div><div class="bio">${p[4]}</div><div class="earn"><div class="amount">TZS ${(42000+i*731).toLocaleString()}</div><div class="usd">Earn USD ${(14.8+i*.27).toFixed(2)}</div></div><button class="start" onclick="startChat(${i})">💬 START CHAT</button></article>`).join("")
+}
+function bubble(t,x){
+  let d=document.createElement("div");
+d.className="bubble "+t;
+d.textContent=x;
+chatBody.appendChild(d);
+chatBody.scrollTop=chatBody.scrollHeight
+}
+function startChat(i){
+  active=profiles[i];
+chat.style.display="flex";
+chatName.textContent=active[0]+" • "+active[2];
+mini.src=faces[i%faces.length];
+chatBody.innerHTML="";
+bubble("foreign","Hello! 👋 I'd love to learn more about Tanzania and practice Swahili with you. 😊")
+}
+chatForm.addEventListener("submit",e=>{
+  e.preventDefault();
+let x=message.value.trim();
+if(!x)return;
+bubble("mine",x);
+message.value="";
+verify.style.display="flex";
+setTimeout(()=>{
+  verify.style.display="none";
+gate.style.display="flex"
+}
+,2200)
+}
+)
+function closeChat(){
+  chat.style.display="none"
+}
+function closeGate(){
+  gate.style.display="none"
+}
+render();
+let n=42680;
+setInterval(()=>{
+  n+=Math.floor(Math.random()*7)-3;
+online.textContent=n.toLocaleString()
+}
+,4500);
+  </script>
+ </body>
+</html>
